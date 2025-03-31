@@ -5,14 +5,14 @@ from typing import Optional, List
 import httpx
 
 # from openai_client import get_openai_response
-from file_handler import save_upload_file_temporarily
+from api.file_handler import save_upload_file_temporarily
 
-from base_logger import logger
+from api.base_logger import logger
 
 # Import the functions you want to test directly
 # from functions import *
 
-app = FastAPI(title="IITM Assignment API")
+app = FastAPI(title="IITM TDS Project 2")
 
 # Add CORS middleware
 # app.add_middleware(
