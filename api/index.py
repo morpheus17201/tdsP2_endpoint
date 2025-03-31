@@ -84,7 +84,7 @@ async def process_question(
         # answer = await get_openai_response(question, temp_file_path)
 
         # return {"answer": answer}
-        return answer.text
+        return {"answer": answer.text}
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
