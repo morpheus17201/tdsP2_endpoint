@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from typing import Optional, List
 import httpx
+import json
 
 # from openai_client import get_openai_response
 from file_handler import save_upload_file_temporarily
@@ -59,7 +60,7 @@ async def process_question(
                 logger.info(f"Attempting to save the file")
                 temp_file_path = await save_upload_file_temporarily(file[0])
                 logger.info(f"Successfully saved the file to {temp_file_path}")
-                files_dict = {file[0].filename: open(temp_file_path, "rb")}
+                files_dict = {"file": open(temp_file_path, "rb")}
 
             elif len(file) > 1:
                 file_path_list = []
@@ -70,7 +71,7 @@ async def process_question(
                     temp_file_path = await save_upload_file_temporarily(f)
                     logger.info(f"Saved succesfully to {temp_file_path}")
                     file_path_list.append(temp_file_path)
-                    files_dict = {f.filename: open(temp_file_path, "rb")}
+                    files_dict[f.filename] = open(temp_file_path, "rb")
 
         # Get answer from OpenAI
         with httpx.Client() as client:
