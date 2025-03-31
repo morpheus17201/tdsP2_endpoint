@@ -5,9 +5,9 @@ from typing import Optional, List
 import httpx
 
 # from openai_client import get_openai_response
-from api.file_handler import save_upload_file_temporarily
+from file_handler import save_upload_file_temporarily
 
-from api.base_logger import logger
+from base_logger import logger
 
 # Import the functions you want to test directly
 # from functions import *

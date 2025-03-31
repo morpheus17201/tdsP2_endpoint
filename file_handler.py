@@ -3,7 +3,7 @@ import shutil
 import tempfile
 from fastapi import UploadFile
 
-from api.base_logger import logger
+from base_logger import logger
 
 
 async def save_upload_file_temporarily(upload_file: UploadFile) -> str:
