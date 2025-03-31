@@ -79,6 +79,10 @@ async def process_question(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+    finally:
+        for f in files_dict.values():
+            f[1].close()
+
 
 if __name__ == "__main__":
     import uvicorn
