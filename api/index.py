@@ -79,6 +79,8 @@ async def process_question(
             answer = client.post(
                 url=endpoint_URL, files=files_dict, data={"question": question}
             )
+            logger.info(f"Response status from endpoint:{answer.status_code}")
+            answer.raise_for_status()
             logger.info(f"Answer received from endpoint:{answer.text}")
 
         # answer = await get_openai_response(question, temp_file_path)
