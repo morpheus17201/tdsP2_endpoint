@@ -1,6 +1,8 @@
 import logging
 import os
 
+ENABLE_LOGGING_TO_FILE = False
+
 # Create a logger
 logger = logging.getLogger("my_logger")
 logger.setLevel(logging.DEBUG)
@@ -10,11 +12,11 @@ FORMAT = "[%(asctime)s - %(levelname)s - %(funcName)20s(): ] %(message)s"
 # formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 formatter = logging.Formatter(FORMAT)
 
-
-# Create a file handler to write logs to a file
-file_handler = logging.FileHandler(os.path.join("/", "tmp", "my_log.log"))
-file_handler.setLevel(logging.DEBUG)
-file_handler.setFormatter(formatter)
+if ENABLE_LOGGING_TO_FILE:
+    # Create a file handler to write logs to a file
+    file_handler = logging.FileHandler(os.path.join("/", "tmp", "my_log.log"))
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(formatter)
 
 # Create a stream handler to print logs to the console
 console_handler = logging.StreamHandler()
@@ -24,8 +26,10 @@ console_handler.setLevel(
 console_handler.setFormatter(formatter)
 
 # Add the handlers to the logger
-logger.addHandler(file_handler)
 logger.addHandler(console_handler)
+if ENABLE_LOGGING_TO_FILE:
+    logger.addHandler(file_handler)
+
 
 # Now you can log messages with different levels
 logger.info("Starting logger")
