@@ -78,12 +78,12 @@ async def process_question(
             answer = client.post(
                 url=endpoint_URL, files=files_dict, data={"question": question}
             )
-            logger.info(f"Answer received from endpoint:{answer}")
+            logger.info(f"Answer received from endpoint:{answer.text}")
 
         # answer = await get_openai_response(question, temp_file_path)
 
         # return {"answer": answer}
-        return answer
+        return answer.text
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
