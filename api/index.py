@@ -28,6 +28,7 @@ endpoint_URL = r"https://b6fe-49-36-103-228.ngrok-free.app"
 
 
 @app.get("/")
+@app.get("/api/")
 async def health_check():
     return {"answer": "Get request working succesfully"}
 
