@@ -25,7 +25,7 @@ app = FastAPI(title="IITM TDS Project 2")
 # )
 
 
-endpoint_URL = r"https://b6fe-49-36-103-228.ngrok-free.app"
+endpoint_URL = r"https://90eb-4-186-56-117.ngrok-free.app"
 
 
 @app.get("/")
