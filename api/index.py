@@ -84,9 +84,10 @@ async def process_question(
             logger.info(f"Answer received from endpoint:{answer.text}")
 
         # answer = await get_openai_response(question, temp_file_path)
-
+        # if answer.text[0]== '"' or answer.text[0] == "'":
+        #     final_answer= answer[1:-1]
         # return {"answer": answer}
-        return {"answer": answer.text}
+        return answer.text
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
