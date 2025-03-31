@@ -12,7 +12,7 @@ formatter = logging.Formatter(FORMAT)
 
 
 # Create a file handler to write logs to a file
-file_handler = logging.FileHandler(os.path.join(["/", "tmp", "my_log.log"]))
+file_handler = logging.FileHandler(os.path.join("/", "tmp", "my_log.log"))
 file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 
