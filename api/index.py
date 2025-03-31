@@ -73,11 +73,9 @@ async def process_question(
                     files_dict = {f.filename: open(temp_file_path, "rb")}
 
         # Get answer from OpenAI
-        async with httpx.Client() as client:
+        with httpx.Client() as client:
             logger.info(f"Sending question & files to endpoint {endpoint_URL}")
-            answer = await client.post(
-                url=endpoint_URL, files=files_dict, data=question
-            )
+            answer = client.post(url=endpoint_URL, files=files_dict, data=question)
 
         # answer = await get_openai_response(question, temp_file_path)
 
