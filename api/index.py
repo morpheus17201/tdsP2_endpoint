@@ -15,13 +15,13 @@ from base_logger import logger
 app = FastAPI(title="IITM Assignment API")
 
 # Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
 endpoint_URL = r"https://b6fe-49-36-103-228.ngrok-free.app"
@@ -84,9 +84,9 @@ async def process_question(
             f[1].close()
 
 
-if __name__ == "__main__":
-    import uvicorn
+# if __name__ == "__main__":
+#     import uvicorn
 
-    logger.info("Starting FastAPI server...")
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
-    # uvicorn.run("app", host="0.0.0.0", port=8000, reload=True)
+#     logger.info("Starting FastAPI server...")
+#     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+#     # uvicorn.run("app", host="0.0.0.0", port=8000, reload=True)
