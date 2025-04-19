@@ -80,7 +80,7 @@ async def process_question(
                 url=endpoint_URL,
                 files=files_dict,
                 data={"question": question},
-                timeout=30,
+                timeout=60,
             )
             logger.info(f"Response status from endpoint:{answer.status_code}")
             answer.raise_for_status()
