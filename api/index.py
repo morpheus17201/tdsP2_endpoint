@@ -77,7 +77,10 @@ async def process_question(
         with httpx.Client() as client:
             logger.info(f"Sending question & files to endpoint {endpoint_URL}")
             answer = client.post(
-                url=endpoint_URL, files=files_dict, data={"question": question}
+                url=endpoint_URL,
+                files=files_dict,
+                data={"question": question},
+                timeout=30,
             )
             logger.info(f"Response status from endpoint:{answer.status_code}")
             answer.raise_for_status()
